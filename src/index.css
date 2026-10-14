@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif Display", "Noto Serif Bengali", "Noto Serif SC", Georgia, serif;
+  --font-sans: "Noto Sans", "Noto Sans Bengali", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+  
+  --color-brand-green: #0b6e52;
+  --color-brand-emerald: #0b7a5a;
+  --color-brand-red: #c8321f;
+  --color-brand-crimson: #a62716;
+  --color-brand-gold: #e8b04a;
+  --color-brand-golddark: #9a6b0c;
+  --color-brand-dark: #07140f;
+  --color-brand-darker: #050d0a;
+}
+
+:root {
+  --bg: #eef2ed;
+  --surface: #ffffff;
+  --surface2: #e2eae4;
+  --text: #10231c;
+  --muted: #4b6258;
+  --line: rgba(16, 35, 28, 0.14);
+  --ok: #0b7a5a;
+  --warn: #9a6b0c;
+  --bad: #c8321f;
+  --info: #2f6aa3;
+  --gold: #9a6b0c;
+  --btn: #c8321f;
+  --btn-h: #a62716;
+  --serif: "Noto Serif Display", "Noto Serif Bengali", "Noto Serif SC", Georgia, serif;
+  --sans: "Noto Sans", "Noto Sans Bengali", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+}
+
+.dark, [data-theme="dark"] {
+  --bg: #0a1713;
+  --surface: #11241d;
+  --surface2: #183029;
+  --text: #eaf0e8;
+  --muted: #98b0a5;
+  --line: rgba(255, 255, 255, 0.13);
+  --ok: #37c597;
+  --warn: #e8b04a;
+  --bad: #ef5a45;
+  --info: #6aa5de;
+  --gold: #e8b04a;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+.font-serif {
+  font-family: var(--serif);
+}
+
+.font-sans {
+  font-family: var(--sans);
+}
+
+/* Animations */
+@keyframes rise {
+  from { transform: translateY(90px); }
+  to { transform: none; }
+}
+
+@keyframes m1 {
+  from { transform: translate(520px, 92px); }
+  to { transform: translate(640px, 92px); }
+}
+
+@keyframes m2 {
+  from { transform: translate(790px, 88px); }
+  to { transform: translate(690px, 88px); }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 50, 31, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(200, 50, 31, 0.2); }
+}
+
+@keyframes scanLine {
+  0% { top: 0; opacity: 1; }
+  100% { top: 100%; opacity: 0.2; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+.animate-rise {
+  animation: rise 3.6s cubic-bezier(0.18, 0.7, 0.2, 1) both;
+}
+
+.animate-m1 {
+  animation: m1 14s ease-in-out infinite alternate;
+}
+
+.animate-m2 {
+  animation: m2 14s ease-in-out infinite alternate;
+}
+
+.animate-pulse-border {
+  animation: pulseBorder 1.8s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease both;
+}
+
+.animate-scan {
+  animation: scanLine 2s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spinSlow 0.8s linear infinite;
+}
+
+.lattice-pattern {
+  background-color: #0c211a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Cpath d='M2 2h18v18H2zM7 7h8v8H7z' fill='none' stroke='%23e8b04a' stroke-opacity='.35'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 120, 110, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 120, 110, 0.5);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
